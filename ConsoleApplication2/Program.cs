@@ -1,4 +1,4 @@
-﻿namespace Hangman
+﻿namespace ConsoleApplication2
 {
     internal class Program
     {
