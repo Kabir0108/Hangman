@@ -1,3 +1,6 @@
+using System;
+using ConsoleApplication2;
+
 namespace Hangman
 {
     internal class Program
