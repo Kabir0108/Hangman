@@ -8,12 +8,12 @@ namespace ConsoleApplication2
     }
     public class NamesGenerator
     {
-        public static string[] Easy = { "John", "George", "Ethan", "Mclaren", "Ringo", "Paul" };
+        public static string[] Easy = { "lovely", "youthful", "yummy", "kazoo", "jiujitsu", "jaywalk", "jawbreaker", "wellspring", "xylophone"};
 
         public static string[] Medium =
-            { "Liang", "Wong", "Tsang", "Chen", "Harjabrada", "Garlack the Anihallator" };
+            { "mystify", "menumonic", "phlegm", "caliph", "buxom", "haphazard", "voyeurism", "zodiac", "wyvern", "jovial" };
 
-        public static string[] Hard = {"reyhani"};
+        public static string[] Hard = {"naphtha", "buckaroo", "stymied", "galvanise", "pneumonia", "plasmophobia", "arachnophobia", "agoraphobia", "aichmophobia", "amaxophobia", "androphobia"};
 
         public static string GenerateWord(string word)
         {
@@ -37,8 +37,11 @@ namespace ConsoleApplication2
             return choice;
         }
     }
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Hello");
+        string input = Console.ReadLine();
+        string chosenumber = NamesGenerator.GenerateWord(input);
+        Console.WriteLine(chosenumber);
+    }
 }
-Console.WriteLine("Hello");
-string input = Console.ReadLine();
-string chosenumber = NamesGenerator.GenerateWord(input);
-Console.WriteLine(chosenumber);
