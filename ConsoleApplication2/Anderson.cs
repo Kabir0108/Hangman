@@ -4,16 +4,24 @@ namespace ConsoleApplication2
 {
     public class Anderson
     {
-        
+
     }
+
     public class NamesGenerator
     {
-        public static string[] Easy = { "lovely", "youthful", "yummy", "kazoo", "jiujitsu", "jaywalk", "jawbreaker", "wellspring", "xylophone"};
+        public static string[] Easy =
+            { "lovely", "youthful", "yummy", "kazoo", "jiujitsu", "jaywalk", "jawbreaker", "wellspring", "xylophone" };
 
         public static string[] Medium =
-            { "mystify", "menumonic", "phlegm", "caliph", "buxom", "haphazard", "voyeurism", "zodiac", "wyvern", "jovial" };
+        {
+            "mystify", "menumonic", "phlegm", "caliph", "buxom", "haphazard", "voyeurism", "zodiac", "wyvern", "jovial"
+        };
 
-        public static string[] Hard = {"naphtha", "buckaroo", "stymied", "galvanise", "pneumonia", "plasmophobia", "arachnophobia", "agoraphobia", "aichmophobia", "amaxophobia", "androphobia"};
+        public static string[] Hard =
+        {
+            "naphtha", "buckaroo", "stymied", "galvanise", "pneumonia", "plasmophobia", "arachnophobia", "agoraphobia",
+            "aichmophobia", "amaxophobia", "androphobia"
+        };
 
         public static string GenerateWord(string word)
         {
@@ -22,26 +30,19 @@ namespace ConsoleApplication2
             string randommediumwords = Medium[rand.Next(Medium.Length)];
             string randomhardwords = Hard[rand.Next(Hard.Length)];
             var choice = word;
-            if (choice == "easy");
+            if (choice == "easy") ;
             {
                 choice = randomeasywords;
             }
-            if (choice == "medium");
+            if (choice == "medium") ;
             {
                 choice = randommediumwords;
             }
-            if (choice == "hard");
+            if (choice == "hard") ;
             {
                 choice = randomhardwords;
             }
             return choice;
         }
-    }
-    public static void Main(string[] args)
-    {
-        Console.WriteLine("Hello");
-        string input = Console.ReadLine();
-        string chosenumber = NamesGenerator.GenerateWord(input);
-        Console.WriteLine(chosenumber);
     }
 }
