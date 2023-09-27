@@ -7,6 +7,10 @@ namespace Hangman
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Hello");
+            string input = Console.ReadLine();
+            string chosenumber = NamesGenerator.GenerateWord(input);
+            Console.WriteLine(chosenumber);
         }
     }
 }
