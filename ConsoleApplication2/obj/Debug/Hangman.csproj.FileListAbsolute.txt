@@ -1,0 +1,6 @@
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\obj\Debug\Hangman.csproj.AssemblyReference.cache
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\obj\Debug\Hangman.csproj.CoreCompileInputs.cache
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
+C:\Users\datis\source\repos\Hangman\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
