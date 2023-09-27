@@ -2,17 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Hangman_personal
+namespace ConsoleApplication2
 {
     internal class Program
     {
-        public static void Main(string[] args)
-        {
-            string gLettersTemp = "fit";
-            string guessWord = "cyclotron";
-            Console.WriteLine(updateString(word: guessWord, gLetters: gLettersTemp));
-        }
-
         public static string updateString(string word, string gLetters)
         {
             string upWord = "";
