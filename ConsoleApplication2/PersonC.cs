@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 namespace ConsoleApplication2
 {
@@ -6,7 +8,7 @@ namespace ConsoleApplication2
     {
         char guessed_letter = Convert.ToChar(Console.ReadLine());
         
-        Console.WriteLine(CheckLetter(secret_letter, guessed_letter));
+        Console.WriteLine(CheckLetter(secret_word, guessed_letter));
         /* if (guessed_letter.Length == 1)
           {
               string guess = guessed_letter;
