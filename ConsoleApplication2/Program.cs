@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using ConsoleApplication2;
 
 namespace Hangman
@@ -9,23 +10,93 @@ namespace Hangman
         public static void Main(string[] args)
         {
 
-            string chosenumber = NamesGenerator.GenerateWord("easy");
-
-            Console.WriteLine(chosenumber);
+            
 
 
-            char guessed_letter = Convert.ToChar(Console.ReadLine());
+ 
+            int guesses = 0;
+            Console.WriteLine("What difficulty");
+            string chosenword = NamesGenerator.GenerateWord(Console.ReadLine());
 
-            List<int> addresses = CheckLetter(chosenumber, guessed_letter);
+            List<char> guessedLetterses = new List<char>();
+            string yuhuh = chosenword;
+            string word = "";
+            
+         
 
-            for (int i = 0;i < addresses.Count; i++)
+            while (guesses <= 9)
             {
-                Console.WriteLine(addresses[i]);
+
+                Console.WriteLine("Letter: ");
+
+                char guessed_letter = Convert.ToChar(Console.ReadLine());
+
+                guessedLetterses.Add(Convert.ToChar(guessed_letter));
+                
+                List<string> vals = updateString(chosenword, guessedLetterses, guessed_letter);
+
+                Console.WriteLine(vals[0]);
+
+
+                if (vals[0] == chosenword)
+                {
+                    WinCondition();
+                    return;
+                }
+
+
+                Console.WriteLine(word);
+
+                yuhuh = word;
+
+                if (vals[1] == "0")
+                {
+                    guesses++;
+                }
+                
+                Console.WriteLine(Gallows(guesses)); 
+
+                guessedLetterses.Add( Convert.ToChar(guessed_letter));
             }
-            Console.ReadLine();
-
-
+            LoseCondition();
+            return;
         }
+
+   
+
+        public static List<string> updateString(string word, List<char> gLetters, char news)
+        {
+            string upWord = "";
+            string found = "0";
+            for (int i = 0; i < word.Length; i++)
+            {
+                for (int j = 0; j < gLetters.Count; j++)
+                {
+                    if (word[i] == gLetters[j])
+                    {
+                        upWord = upWord + gLetters[j];
+                        if (news == gLetters[j])
+	                    {
+                            found = "1";
+	                    }
+                    
+                        break;
+                    }
+                    else
+                    {
+
+                        if (j == gLetters.Count - 1)
+                        {
+                            upWord = upWord + "_";
+                            break;
+
+                        }
+                    }
+                }
+            }
+            return new List<string> { upWord, found };
+        }
+
 
         public static string Gallows(int guesses)
         {
@@ -130,6 +201,7 @@ __|_______";
             Console.WriteLine("\n\nThe guessed letters so far, are: " + guessed_letters);
         }
 
+
         public static List<int> CheckLetter(string secret_word, char guessed_letter)
         {
             List<int> instances = new List<int>();
@@ -141,6 +213,18 @@ __|_______";
                 }
             }
             return instances;
+        }
+    
+        public static void WinCondition()
+        {
+            Console.Clear(); 
+            Console.WriteLine("YOU WON!! CONGRATS");
+        }
+
+        public static void LoseCondition()
+        {
+            Console.Clear();
+            Console.WriteLine("You lost!! I hope you remember this on your deathbed.");
         }
     }
 }
