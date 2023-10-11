@@ -11,19 +11,6 @@ namespace ConsoleApplication2
 
     public class NamesGenerator
     {
-        public static string[] Easy =
-            { "lovely", "youthful", "yummy", "kazoo", "jiujitsu", "jaywalk", "jawbreaker", "wellspring", "xylophone" };
-
-        public static string[] Medium =
-        {
-            "mystify", "mneumonic", "phlegm", "caliph", "buxom", "haphazard", "voyeurism", "zodiac", "wyvern", "jovial"
-        };
-
-        public static string[] Hard =
-        {
-            "naphtha", "buckaroo", "stymied", "galvanise", "pneumonia", "plasmophobia", "arachnophobia", "agoraphobia",
-            "aichmophobia", "amaxophobia", "androphobia"
-        };
 
         public static string GenerateWord(string word)
         {
