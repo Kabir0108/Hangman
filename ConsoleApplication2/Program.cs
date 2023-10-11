@@ -10,36 +10,49 @@ namespace Hangman
         public static void Main(string[] args)
         {
 
+            var rands = new Random();
 
+            int i = rands.Next(10);
 
             ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
 
-            int i = 1;
 
             Console.ForegroundColor = colors[i];
 
 
             int guesses = 0;
-            Console.WriteLine("What difficulty");
+            Console.WriteLine("What difficulty? easy/medium/hard - case sensitive (defaults to hard mode)");
             string chosenword = NamesGenerator.GenerateWord(Console.ReadLine());
 
-            List<char> guessedLetterses = new List<char>();
+            List<char> guessedLetterses;
+
+            
+            guessedLetterses = new List<char>();
+            
             string yuhuh = chosenword;
             string word = "";
             
-
          
 
             while (guesses <= 9)
             {
 
-                Console.WriteLine("Letter: ");
+                Console.WriteLine("Letter: 1 letter");
 
-                i++;
+                i = rands.Next(10);
 
                 Console.ForegroundColor = colors[i];
 
-                char guessed_letter = Convert.ToChar(Console.ReadLine());
+                char guessed_letter = ' ';
+
+                try { 
+                    guessed_letter = Convert.ToChar(Console.ReadLine());
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("not a letter");
+                    return;
+                }
 
                 guessedLetterses.Add(Convert.ToChar(guessed_letter));
                 
