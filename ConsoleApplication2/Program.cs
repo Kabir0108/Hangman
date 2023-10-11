@@ -54,6 +54,8 @@ namespace Hangman
                     return;
                 }
 
+                Console.WriteLine("\n\n\n\n");
+
                 guessedLetterses.Add(Convert.ToChar(guessed_letter));
                 
                 List<string> vals = updateString(chosenword, guessedLetterses, guessed_letter);
@@ -78,7 +80,8 @@ namespace Hangman
                     guesses++;
                 }
                 
-                Console.WriteLine(Gallows(guesses)); 
+                Console.WriteLine(Gallows(guesses));
+                Console.WriteLine("\n\n\n\n");
 
                 guessedLetterses.Add( Convert.ToChar(guessed_letter));
             }
