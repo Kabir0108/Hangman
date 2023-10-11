@@ -34,7 +34,7 @@ namespace ConsoleApplication2
             if (word == "easy")
             {
                 List<string> lineseasy = new List<string>();
-                StreamReader sr1 = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\easy.txt");
+                StreamReader sr1 = new StreamReader(@"C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\easy.txt");
                 line = sr1.ReadLine();
                 lineseasy.Add(line);
                 while (line != null) { line = sr1.ReadLine(); lineseasy.Add(line); ; }
@@ -53,6 +53,16 @@ namespace ConsoleApplication2
 
             }
             else if (word == "hard")
+            {
+                List<string> lineshard = new List<string>();
+                StreamReader sr = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\hard.txt");
+                line = sr.ReadLine();
+                lineshard.Add(line);
+                while (line != null) { line = sr.ReadLine(); lineshard.Add(line); }
+                sr.Close();
+                choice = lineshard[rand.Next(lineshard.Count)];
+            }
+            else
             {
                 List<string> lineshard = new List<string>();
                 StreamReader sr = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\hard.txt");
