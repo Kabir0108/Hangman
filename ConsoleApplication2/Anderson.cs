@@ -20,18 +20,18 @@ namespace ConsoleApplication2
             List<string> lines = new List<string>();
 
             if((word != "easy") && (word != "medium") && (word != "hard")){
-                word = "hard";
+                word = "hard"; //make sure there's no funny business (defaults to hard)
             }
 
             string choice = "";
             
-            StreamReader sr = new StreamReader("..\\..\\" + word + ".txt");
+            StreamReader sr = new StreamReader("..\\..\\" + word + ".txt"); //relative file path
             line = sr.ReadLine();
             lines.Add(line);
             while (line != null) { line = sr.ReadLine(); lines.Add(line); }
             sr.Close();
-            choice = lines[rand.Next(lines.Count)];
-            
+            choice = lines[rand.Next(lines.Count)]; //generates the random word from lines
+
 
             return choice;
         }
