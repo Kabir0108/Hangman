@@ -14,14 +14,14 @@ namespace ConsoleApplication2
 
         public static string GenerateWord(string word)
         {
-            var rand = new Random(); //created an object of class Random
+            var rand = new Random();
             string line;
 
             string choice = "";
             if (word == "easy")
             {
                 List<string> lineseasy = new List<string>();
-                StreamReader sr1 = new StreamReader(@"C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\easy.txt"); //relative file path
+                StreamReader sr1 = new StreamReader(@" C:\Users\daone\RiderProjects\Hangman\ConsoleApplication2\easy.txt"); //relative file path
                 line = sr1.ReadLine();
                 lineseasy.Add(line);
                 while (line != null) //loops while there are still unread lines in the textfile
@@ -34,7 +34,7 @@ namespace ConsoleApplication2
             else if (word == "medium") //repeated for difficulty medium
             {
                 List<string> linesmedium = new List<string>();
-                StreamReader sr2 = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\medium.txt");
+                StreamReader sr2 = new StreamReader(@" C:\Users\daone\RiderProjects\Hangman\ConsoleApplication2\easy.txt");
                 line = sr2.ReadLine();
                 linesmedium.Add(line);
                 while (line != null)
@@ -48,7 +48,7 @@ namespace ConsoleApplication2
             else if (word == "hard") //repeated for difficulty hard
             {
                 List<string> lineshard = new List<string>();
-                StreamReader sr = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\hard.txt");
+                StreamReader sr = new StreamReader(@" C:\Users\daone\RiderProjects\Hangman\ConsoleApplication2\easy.txt");
                 line = sr.ReadLine();
                 lineshard.Add(line);
                 while (line != null) { line = sr.ReadLine(); lineshard.Add(line); }
@@ -58,7 +58,7 @@ namespace ConsoleApplication2
             else //make sure there's no funny buisness (defaults to hard)
             {
                 List<string> lineshard = new List<string>();
-                StreamReader sr = new StreamReader("C:\\Users\\datis\\source\\repos\\Hangman\\ConsoleApplication2\\hard.txt");
+                StreamReader sr = new StreamReader(@" C:\Users\daone\RiderProjects\Hangman\ConsoleApplication2\easy.txt");
                 line = sr.ReadLine();
                 lineshard.Add(line);
                 while (line != null)
