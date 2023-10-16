@@ -16,13 +16,27 @@ namespace Hangman
 
             ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
 
-
-            Console.ForegroundColor = colors[i];
+            if (colors[i] != ConsoleColor.Black)
+            {
+                Console.ForegroundColor = colors[i];
+            }
+            else
+            {
+                Console.ForegroundColor= ConsoleColor.White;
+            }
 
 
             int guesses = 0;
             Console.WriteLine("What difficulty? easy/medium/hard - case sensitive (defaults to hard mode)");
-            string chosenword = NamesGenerator.GenerateWord(Console.ReadLine());
+            string input = Console.ReadLine();
+
+            if((input != "easy") && (input  != "medium") && (input != "hard")){
+                input = "hard";
+                Console.WriteLine("Not one of the options - defaulted to hard :3");
+            }
+
+
+            string chosenword = NamesGenerator.GenerateWord(input);
 
             List<char> guessedLetterses;
 
@@ -31,19 +45,26 @@ namespace Hangman
             
             string yuhuh = chosenword;
             string word = "";
-            
+            bool check = false;
          
 
             while (guesses <= 9)
             {
 
-                Console.WriteLine("Letter: 1 letter");
-
+                check = false;
+                Console.WriteLine("Please enter your guessed letter: ");
+                char guessed_letter = ' ';
                 i = rands.Next(10);
 
-                Console.ForegroundColor = colors[i];
 
-                char guessed_letter = ' ';
+                if (colors[i] != ConsoleColor.Black)
+                {
+                    Console.ForegroundColor = colors[i];
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
 
                 try { 
                     guessed_letter = Convert.ToChar(Console.ReadLine());
@@ -54,13 +75,12 @@ namespace Hangman
                     return;
                 }
 
+                if (guessedLetterses.Contains(guessed_letter)){check = true;}
+
+
                 Console.WriteLine("\n\n\n\n");
-
                 guessedLetterses.Add(Convert.ToChar(guessed_letter));
-                
                 List<string> vals = updateString(chosenword, guessedLetterses, guessed_letter);
-
-                Console.WriteLine(vals[0]);
 
 
                 if (vals[0] == chosenword)
@@ -73,17 +93,29 @@ namespace Hangman
 
                 Console.WriteLine(word);
 
-                yuhuh = word;
 
-                if (vals[1] == "0")
+                if ((vals[1] == "0") && (!check))
                 {
                     guesses++;
                 }
+
+                if (check)
+                {
+                    Console.WriteLine("You've already guessed that!");
+                }
                 
-                Console.WriteLine(Gallows(guesses));
+                Console.WriteLine(Gallows(guesses) + "\n");
+                Console.WriteLine(vals[0]);
+                Console.Write("guessed letters so far: ");
+
+                for (int k = 0; k < (guessedLetterses.Count -1); k++)
+                {
+                    Console.Write(guessedLetterses[k]+ ", ");
+                }
+                
+                Console.Write("\n");
                 Console.WriteLine("\n\n\n\n");
 
-                guessedLetterses.Add( Convert.ToChar(guessed_letter));
             }
             LoseCondition();
             Console.ReadLine();
@@ -124,7 +156,6 @@ namespace Hangman
             }
             return new List<string> { upWord, found };
         }
-
 
         public static string Gallows(int guesses)
         {
