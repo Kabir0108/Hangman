@@ -21,7 +21,7 @@ namespace Hangman
 
 
             int guesses = 0;
-            Console.WriteLine("What difficulty? easy/medium/hard - case sensitive (defaults to hard mode)");
+            Console.WriteLine("What difficulty? easy/medium/hard - case sensitive (or else defaults to hard mode)");
             string chosenword = NamesGenerator.GenerateWord(Console.ReadLine());
 
             List<char> guessedLetterses;
